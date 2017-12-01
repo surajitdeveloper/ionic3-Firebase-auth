@@ -1,0 +1,23 @@
+@media screen and (min-width: 768px) {
+
+
+body{
+	background-position:0 250px;
+	font-size: 22px;
+}
+
+.logo{
+	width: 30%;
+}
+.head_right{
+	font-size: 40px;
+}
+.ban_txt{
+	font-size: 36px;
+}
+.oil_text{
+	font-size: 24px;
+}
+
+
+}
