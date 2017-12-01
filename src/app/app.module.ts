@@ -9,6 +9,19 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyAdbjdcpIFC8UsXkioYLVHCvkN2ggBf1Qs",
+  authDomain: "ottolube-14a38.firebaseapp.com",
+  databaseURL: "https://ottolube-14a38.firebaseio.com",
+  projectId: "ottolube-14a38",
+  storageBucket: "ottolube-14a38.appspot.com",
+  messagingSenderId: "664923951928"
+};
+
 @NgModule({
   declarations: [
     MyApp,
