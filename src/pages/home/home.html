@@ -20,11 +20,14 @@
      <div class="top_brand"><h2>Top Brand</h2></div>
   
      <div class="full_width mt40">
-       <div class="part3">
+       <div *ngFor="let item of ext_put_data" class="part3" (click)="goto(item.parent)">
+         <img  class="text-center" src="{{item.image}}" alt="">
+         <p class="oil_text">{{item.title}}</p>
+       </div>
+       <!--div class="part3">
          <img  class="text-center" src="assets/images/red_otto.png" alt="">
          <p class="oil_text">Oil barrel Red</p>
        </div>
-  
        <div class="part3">
          <img  class="text-center" src="assets/images/yellow_otto.png" alt="">
          <p class="oil_text">Oil barrel Yellow</p>
@@ -33,7 +36,7 @@
        <div class="part3">
          <img  class="text-center" src="assets/images/green_otto.png" alt="">
          <p class="oil_text">Oil barrel Green</p>
-       </div>
+       </div-->
      </div>
   </div>
 </ion-content>

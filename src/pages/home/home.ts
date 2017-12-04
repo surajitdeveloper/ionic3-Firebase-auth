@@ -8,16 +8,21 @@ import { Header1Component } from "../../components/header1/header1";
 })
 export class HomePage {
   ext_put_data = [];
+  goto(val)
+  {
+    alert(val);
+  }
   constructor(public navCtrl: NavController, private firebase: FirebaseProvider) {
 
     let catagoty_child = this.firebase.getData().child("product");
     let put_data = [];
     catagoty_child.on("child_added", function(snap)
       {
-          put_data.push(snap.val());
+        let snap_val = snap.val();
+        snap_val.parent = snap.key;
+        put_data.push(snap_val);
       });
       this.ext_put_data = put_data;
-      console.log(this.ext_put_data);
   }
 
 }
