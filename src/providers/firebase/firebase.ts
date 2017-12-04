@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+//import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -10,8 +10,8 @@ import { AngularFireDatabase } from 'angularfire2/database';
 */
 @Injectable()
 export class FirebaseProvider {
-
-  constructor(public http: HttpClient, private firebase: AngularFireDatabase) {
+  //public http: HttpClient,
+  constructor(private firebase: AngularFireDatabase) {
     console.log('Hello FirebaseProvider Provider');
   }
 

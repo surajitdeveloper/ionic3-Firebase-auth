@@ -32,6 +32,8 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
