@@ -12,20 +12,23 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
+import { Header1Component } from "../components/header1/header1";
+
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyAdbjdcpIFC8UsXkioYLVHCvkN2ggBf1Qs",
-  authDomain: "ottolube-14a38.firebaseapp.com",
-  databaseURL: "https://ottolube-14a38.firebaseio.com",
-  projectId: "ottolube-14a38",
-  storageBucket: "ottolube-14a38.appspot.com",
-  messagingSenderId: "664923951928"
+  apiKey: "AIzaSyBI-fuK3RUJfAb6DWidxB6D-TCOiTHuBmU",
+  authDomain: "ottolube-893d9.firebaseapp.com",
+  databaseURL: "https://ottolube-893d9.firebaseio.com",
+  projectId: "ottolube-893d9",
+  storageBucket: "ottolube-893d9.appspot.com",
+  messagingSenderId: "586868854885"
 };
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    Header1Component
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ export const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    Header1Component
   ],
   providers: [
     StatusBar,
