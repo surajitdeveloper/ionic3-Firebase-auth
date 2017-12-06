@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FirebaseProvider } from "../../providers/firebase/firebase";
 import { Header1Component } from "../../components/header1/header1";
+import { ListingPage } from "../../pages/listing/listing";
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
