@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-
+import { HomePage } from "../../pages/home/home";
+import { ListingPage } from "../../pages/listing/listing";
+import { ProductDetailsPage } from "../../pages/product-details/product-details";
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 /**
  * Generated class for the Header1Component component.
  *
@@ -11,12 +14,14 @@ import { Component } from '@angular/core';
   templateUrl: 'header1.html'
 })
 export class Header1Component {
+ public goto(page){
+   
+ }
+ 
 
-  text: string;
-
-  constructor() {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
     console.log('Hello Header1Component Component');
-    this.text = 'Hello World';
+    
   }
 
 }
