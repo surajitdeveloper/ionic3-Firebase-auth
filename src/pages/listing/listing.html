@@ -12,7 +12,7 @@
 
 
 <ion-content padding>
-  <div *ngFor="let item of productList">
+  <div class="res" *ngFor="let singleProduct of productList" (click)="goto(singleProduct.parent)">
       <div  class="search-box">
           <div class="search-top-text">
             <h3>3 results for oil barrels</h3>
@@ -21,15 +21,15 @@
         <div class="res">
         <div class="search-result">
           <div class="search-pic">
-            <img  class="text-center" src="assets/images/red_otto.png" alt="">
+            <img  class="text-center" src="{{singleProduct.image}}" alt="">
           </div>
         </div>
         <div class="search-text">
           <div class="search-text-x">
-            <p>Red Oil barrel 51000 hardtop</p>
+            <p>{{singleProduct.title}}</p>
             <p>Mfr# 51000</p>
             <p>Free Shipping</p>
-            <p>$373.11 &nbsp; &nbsp;<label>$299.99</label></p>
+            <p>${{singleProduct.size.size1.price.USD}} &nbsp; &nbsp;<label>$299.99</label></p>
           </div>
         </div>
         </div>

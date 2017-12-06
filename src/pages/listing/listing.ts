@@ -18,6 +18,10 @@ import { Header1Component } from "../../components/header1/header1";
 })
 export class ListingPage {
   productList= [];
+  goto(page)
+  {
+    alert(page);
+  }
   constructor(public navCtrl: NavController, public navParams: NavParams,  private fbase: FirebaseProvider) {
   }
 
@@ -29,7 +33,6 @@ export class ListingPage {
     {
       let snap_val = snap.val();
       snap_val.parent = snap.key;
-      console.log(snap_val);
       put_data.push(snap_val);
     });
     this.productList = put_data;
