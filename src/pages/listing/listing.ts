@@ -20,9 +20,13 @@ export class ListingPage {
   productList= [];
   goto(page)
   {
-    alert(page);
+    this.header.goto(page);
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams,  private fbase: FirebaseProvider) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,  
+    private fbase: FirebaseProvider,
+    private header: Header1Component
+  ) {
   }
 
   ionViewDidLoad() {

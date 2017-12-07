@@ -15,7 +15,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class Header1Component {
  public goto(page){
-   
+   alert(page);
  }
  
 
