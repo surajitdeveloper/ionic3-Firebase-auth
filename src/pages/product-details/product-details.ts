@@ -16,12 +16,35 @@ import { Header1Component } from "../../components/header1/header1";
   templateUrl: 'product-details.html',
 })
 export class ProductDetailsPage {
-productDetails=[];
+product_det: {description: string,title: string, image: string  };
   constructor(public navCtrl: NavController, public navParams: NavParams, private fbase: FirebaseProvider) {
+    console.log(navParams.data.product);
+    let firebaseData = this.fbase.getData().child("product").child(navParams.data.product);
+
+    firebaseData.on("child_added",(add)=>{
+      //this.product_det[add.key] = add.val();
+      //console.log(this.product_det);
+      if(add.key == "description")
+        this.product_det.description = add.val();
+      if(add.key == "title")
+        this.product_det.title = add.val();
+      if(add.key == "image")
+        this.product_det.image = add.val();
+
+      console.log(this.product_det);
+      
+    });
+    
+    
+  
+  
+   
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductDetailsPage');
+    
+    
     
   }
 

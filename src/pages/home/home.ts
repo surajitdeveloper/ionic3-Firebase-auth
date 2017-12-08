@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FirebaseProvider } from "../../providers/firebase/firebase";
-import { Header1Component } from "../../components/header1/header1";
 import { ListingPage } from "../../pages/listing/listing";
+import { ProductDetailsPage } from "../product-details/product-details";
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -11,9 +11,10 @@ export class HomePage {
   ext_put_data = [];
   goto(val)
   {
-    alert(val);
+    this.navCtrl.push(ProductDetailsPage,{product: val});
   }
-  constructor(public navCtrl: NavController, private firebase: FirebaseProvider) {
+  constructor(public navCtrl: NavController, 
+    private firebase: FirebaseProvider) {
 
     let catagoty_child = this.firebase.getData().child("product");
     let put_data = [];
