@@ -8,20 +8,30 @@
   
   <!--button ion-button secondary menuToggle>Toggle Menu</button-->
   <div class="banner">
+      
     <div class="banner_part">
-      <img src="assets/images/banner.png" alt="">
+      <ion-slides>
+          <ion-slide>
+            <img src="assets/images/banner.png" alt="">
+          </ion-slide>
+          <ion-slide>
+              <img src="assets/images/banner.png" alt="">
+          </ion-slide>
+          <ion-slide>
+              <img src="assets/images/banner.png" alt="">
+          </ion-slide>
+        </ion-slides>
     </div>
     <div class="clearfix"></div>
     <h1 class="ban_txt mt20">There are many variations</h1>
     <p class="text-center"> It was popularised in the 1960s with the release of Letraset sheets containing</p>
   </div>
-  
   <div class="cont">
      <div class="top_brand"><h2>Top Brand</h2></div>
   
      <div class="full_width mt40">
        <div *ngFor="let item of ext_put_data" class="part3" (click)="goto(item.parent)">
-         <img  class="text-center" src="{{item.image}}" alt="">
+         <img  class="text-center" src="{{item.size.size1.image}}" alt="">
          <p class="oil_text">{{item.title}}</p>
        </div>
      </div>

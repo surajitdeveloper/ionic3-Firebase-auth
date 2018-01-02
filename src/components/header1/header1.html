@@ -3,16 +3,14 @@
     </button>
     <ion-title>Home</ion-title-->
       <header>
-        <div class="logo_sm">
+        <div (click)="goto('home')" class="logo_sm">
           <img src="assets/images/logo.png" alt="">
         </div>
-      
         <div class="head_right">
-          <a><i class="fa fa-mobile" aria-hidden="true"></i></a>
-          <a><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a>
-          <a><i class="fa fa-search" aria-hidden="true"></i></a>
+          <a><i class="fa fa-mobile" (click)="goto('profile')" aria-hidden="true"></i></a>
+          <a><i class="fa fa-cart-arrow-down" (click)="goto('cart')" aria-hidden="true"></i></a>
+          <!--a><i class="fa fa-search" aria-hidden="true"></i></a-->
           <a><i class="fa fa-bars" menuToggle="leftmenu" aria-hidden="true"></i></a>
-          <a><i class="fa fa-ellipsis-v" menuToggle="rightmenu" aria-hidden="true"></i></a>
-      
+          <!--a><i class="fa fa-ellipsis-v" menuToggle="rightmenu" aria-hidden="true"></i></a-->
         </div>
       </header>

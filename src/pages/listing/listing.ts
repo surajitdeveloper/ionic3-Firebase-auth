@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from "../../pages/home/home";
 import { FirebaseProvider } from "../../providers/firebase/firebase";
 import { ProductDetailsPage } from "../product-details/product-details";
+import { MyAccountPage } from "../../pages/my-account/my-account";
 
 /**
  * Generated class for the ListinpgPage page.
@@ -25,8 +26,7 @@ export class ListingPage {
   }
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,  
-    private fbase: FirebaseProvider
-  ) {
+    private fbase: FirebaseProvider){
   }
 
   ionViewDidLoad() {
@@ -43,3 +43,4 @@ export class ListingPage {
   }
 
 }
+      

@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar>
+    <header1></header1>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+<form [formGroup]="todo" (ngSubmit)="logForm()"> 
+    <ion-item>
+    <ion-label>MemberType</ion-label>
+      <ion-select (ionChange)="changemembertype($event)" formControlName="regtype" >
+        <ion-option value="private_user">Private</ion-option>
+        <ion-option value="wholeseller">Whole Seller</ion-option>
+        <ion-option value="trader">Trader</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="private_user">
+      <ion-label>First name</ion-label>
+      <ion-input type="text" formControlName="firstname"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="private_user">
+      <ion-label>Last name</ion-label>
+      <ion-input type="text" formControlName="lastname"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="wholeseller">
+      <ion-label>Whole Seller Name</ion-label>
+      <ion-input type="text" formControlName="wholesellername"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="trader">
+      <ion-label>Trader Name</ion-label>
+      <ion-input type="text" formControlName="tradername"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="wholeseller || trader">
+        <ion-label>Company Name</ion-label>
+        <ion-input type="text" formControlName="companyname"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="wholeseller || trader">
+        <ion-label>Company Address</ion-label>
+        <ion-textarea formControlName="companyaddress"></ion-textarea>
+    </ion-item>
+    <ion-item *ngIf="wholeseller || trader">
+        <ion-label>Company Registration Number</ion-label>
+        <ion-textarea formControlName="companyregisternumber"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Passwords</ion-label>
+      <ion-input formControlName="password" [type]="showPassword ? 'text' : 'password'">
+        <ion-icon ios="ios-eye" md="md-eye" #showhideinput></ion-icon>
+      </ion-input>
+    </ion-item>
+    <button class="mybutton" ion-button type="submit" [disabled]="!todo.valid">Register</button>
+  </form>
+</ion-content>

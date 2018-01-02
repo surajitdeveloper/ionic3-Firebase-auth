@@ -12,24 +12,24 @@
 
 
 <ion-content padding>
-  <div class="res" *ngFor="let singleProduct of productList" (click)="goto(singleProduct.parent)">
-      <div  class="search-box">
+  <div class="res" >
+      <div class="search-box">
           <div class="search-top-text">
             <h3>3 results for oil barrels</h3>
           </div>
         </div>
-        <div class="res">
+        <div class="res" *ngFor="let singleProduct of productList" (click)="goto(singleProduct.parent)">
         <div class="search-result">
           <div class="search-pic">
-            <img  class="text-center" src="{{singleProduct.image}}" alt="">
+            <img  class="text-center" src="{{singleProduct.size.size1.image}}" alt="">
           </div>
         </div>
         <div class="search-text">
           <div class="search-text-x">
             <p>{{singleProduct.title}}</p>
-            <p>Mfr# 51000</p>
+            <!--p>Mfr# 51000</p-->
             <p>Free Shipping</p>
-            <p>${{singleProduct.size.size1.price.USD}} &nbsp; &nbsp;<label>$299.99</label></p>
+            <p>&#163;{{singleProduct.size.size1.price}} &nbsp; &nbsp;<label>&#163;{{singleProduct.size.size3.price}}</label></p>
           </div>
         </div>
         </div>
@@ -43,10 +43,6 @@
       <p>Insted of 300, Earn 400 Points!</p>
     </div>
   </div> -->
-  
-  
-  
-  
  <!-- <div class="res">
   <div class="search-result">
     <div class="search-pic">

@@ -138,5 +138,218 @@ box-sizing: border-box;
 	font-size: 16px;
 	font-weight: 600;
 	text-align: center;
+}
+.search-box
+{
+	float: left;
+	width: 100%;
+	background-color: #EEEEEE;
+}
+.search-top-text 
+{
+	margin: 5%;
+}
+.search-result
+{
+	width: 30%;
+	float: left;
+}
+.search-pic
+{
+	background-color: #EEEEEE;
+	float: left;
+	margin: 15%;
+	width: 75%;
+}
+.search-pic img
+{
+	height: 100px;
+	width: 80px;
+	text-align: center;
+	margin: 10px auto;
+	display: block;
 
+}
+.res
+{
+	width: 100%;
+	clear:both;
+}
+.search-text
+{
+	width: 70%;
+	float: left;
+}
+.search-text-x p
+{
+	font-weight: 600;
+	font-size: 14px;
+	padding: 5px;
+	margin: 0px;
+}
+.search-text-x button
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.search-text-x label
+{
+	/*color: red !important;*/
+	font-size:18px !important;
+	text-decoration: none !important;
+}
+.search-text-x p:nth-child(1) {
+   font-size: 18px;
+}
+.search-text-x p:nth-child(2) {
+    color: #CD1D1D;
+}
+.search-text-x p:nth-child(3) {
+    color: #747474;
+}
+.search-text-x p:nth-child(5) {
+    color: #747474;
+}
+.compare
+{
+	width: 100%;
+	display: block;
+	float: left;
+}
+.compare-box {
+  float: left;
+  margin-bottom: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 35%;
+}
+.mybutton
+{
+	outline: none;
+	border-radius: 5px;
+	background-color: #CD1D1D;
+	border:none;
+	padding: 11px;
+	color: #fff;
+	font-size: 16px;
+
+}
+.compare-text
+{
+	width: 50%;
+	float: left;
+}
+.compare-text p{
+    color:#000;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0px;
+    padding: 0px;
+}
+.compare-text label
+{
+	color: #CD1D1D !important;
+}
+.compare-text p:nth-child(2) {
+    color: #727272;
+    font-weight: 600;
+}
+.ic-pic
+{
+	position: relative;
+}
+.pic-icons
+{
+	position: absolute;
+	top: 37%;
+	left: 20%;
+	color: #fc1414;
+}
+.litrec {
+    color: #727272;
+    display: inline-block;
+}
+.litrec-clr
+{
+	background-color: red;
+	color: #fff;
+	margin-left: 15px;
+	margin-right: 15px;
+	padding: 5px;
+}
+.plusmi
+{
+	background-color: #EEEEEE; 
+	padding: 5px;
+}
+.plusmi a
+{
+	padding: 10px;color: #747474;
+}
+.product-info
+{
+	margin: 5%;
+
+}
+.text-red
+{
+	color: red;
+}
+.display-tab
+{
+	margin: 5%;
+	font-family: 'Rajdhani', sans-serif;
+}
+.display-tab p a
+{
+	display: inline-block;
+	padding-right: 15px;
+}
+.active {
+	text-decoration: underline;
+	color: #CD1D1D;
+}
+hr
+{
+	color: #EEEEEE;
+	background-color: #EEEEEE;
+}
+.review-write button
+{
+	float: right !important;
+	text-transform: uppercase;
+	border-radius: 0px !important;
+}
+.review-write
+{
+	background-color: #EEEEEE;
+	width: 100%;
+}
+.djhwd
+{
+	background-color: #EEEEEE;
+	width: 100%;
+	color: gray;
+	padding: 10px;
+	margin-top: 10px;
+	width: 95%;
+}
+.inut-rat
+{
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+.extrarvw
+{
+	margin: 15%;
+}
+.extrarvw p
+{
+	color: #CD1D1D;
+	text-decoration: underline;
+	margin: 0px;
+	padding: 0px;
+}
+.Specification-item p label:nth-child(2) {
+float: right;
 }

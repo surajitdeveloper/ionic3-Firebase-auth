@@ -10,71 +10,70 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-      <div class="res" >
   <div class="search-box">
     <div class="search-top-text">
       <h3>Product Details</h3>
     </div>
   </div>
   <div class="res">
-    <div class="search-result">
-      <div class="search-pic ic-pic">
-        <!-- <img  class="text-center" src="" alt=""> -->
+  <div class="search-result">
+    <div class="search-pic ic-pic">
+      <img class="text-center" src="{{image}}">
+    </div>
+    <!--div class="pic-icons">
+      <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+    </div-->
+    <div class="inut-rat extrarvw">
+      <div class="star-img">
+        <img src="assets/images/star.png">
       </div>
-      <div class="pic-icons">
-        <i class="fa fa-search fa-2x" aria-hidden="true"></i>
-      </div>
-      <div class="inut-rat extrarvw">
-        <div class="star-img">
-          <img src="assets/images/star.png">
-        </div>
-        <p>No Review</p>
+      <p>No Review</p>
+    </div>
+  </div>
+  <div class="search-text" >
+    <div class="search-text-x">
+      <p>{{product.title}}</p>
+      <p>&#163; {{product_price}}</p>
+      <p>Size</p>
+      <p><a (click)="set_liter('size1')" class="litrec" [class.litrec-clr]="size == 'size1'">1 Litre</a>
+         <a (click)="set_liter('size2')" class="litrec" [class.litrec-clr]="size == 'size2'">5Litre</a>
+         <a (click)="set_liter('size3')" class="litrec" [class.litrec-clr]="size == 'size3'">200Litre</a></p>
+      <p>Quentity</p>
+      <p><label class="plusmi"><a (click)="set_qty('minus')"><i class="fa fa-minus" aria-hidden="true"></i></a><a>{{total_qty}}</a><a (click)="set_qty('plus')"><i class="fa fa-plus" aria-hidden="true"></i></a></label></p>
+      <button (click)="add_cart()" type="button" class="mybutton">Add to Cart</button>
+    </div>
+  </div>
+  <div class="product-info" >
+    <p>{{product.description}}</p>
+  </div>
+  <div class="display-tab">
+    <p><a class="active">Reviews</a><a>Specification</a><a>Technical details</a></p>
+    <hr>
+    <div class="review-write">
+      <button type="button" class="mybutton">Write a Review</button>
+    </div>
+    <div class="clearfix"></div>
+    <div class="djhwd">
+       <ion-input placeholder=" Name"></ion-input>
+    </div>
+    <div class="djhwd">
+      Email
+    </div>
+    <div class="inut-rat">
+      Rating
+      <div class="star-img">
+        <img src="assets/images/star.png">
       </div>
     </div>
-    <div class="search-text" >
-      <div class="search-text-x">
-        <p>Engine Oil 5W-30</p>
-        <p>&#163; 69.99</p>
-        <p>Size</p>
-        <p><a class="litrec">1 Litre</a><a class="litrec litrec-clr">5Litre</a><a class="litrec">20LitreM</a></p>
-        <p>Quentity</p>
-        <p><label class="plusmi"><a><i class="fa fa-minus" aria-hidden="true"></i></a><a>4</a><a><i class="fa fa-plus" aria-hidden="true"></i></a></label></p>
-        <button type="button" class="mybutton">Add to Cart</button>
-      </div>
+    <div class="djhwd">
+      Review-Title
     </div>
-    <div class="product-info" >
-      <p></p>
-      <p class="text-red">Download full product datasheet</p>
+    <div class="djhwd">
+      Body of Review (1500)
     </div>
-    <div class="display-tab">
-      <!-- <p><a class="active">Reviews</a><a>Specification</a><a>Technical details</a></p> -->
-      <hr>
-      <div class="review-write">
-        <button type="button" class="mybutton">Write a Review</button>
-      </div>
-      <div class="clearfix"></div>
-      <div class="djhwd">
-        Name
-      </div>
-      <div class="djhwd">
-        Email
-      </div>
-      <div class="inut-rat">
-        Rating
-        <div class="star-img">
-          <img src="assets/images/star.png">
-        </div>
-      </div>
-      <div class="djhwd">
-        Review-Title
-      </div>
-      <div class="djhwd">
-        Body of Review (1500)
-      </div>
-      <div class="review-write">
-        <button type="button" class="mybutton">Submit Review</button>
-      </div>
+    <div class="review-write">
+      <button type="button" class="mybutton">Submit Review</button>
     </div>
-    </div>
-    </div>
+  </div>
+  </div>
 </ion-content>
