@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
 import { FirebaseProvider} from "../../providers/firebase/firebase";
 import { CartPage } from "../../pages/cart/cart";
-
+import { MethodsProvider } from "../../providers/methods/methods";
 /**
  * Generated class for the MyOrderPage page.
  *
@@ -18,30 +17,51 @@ import { CartPage } from "../../pages/cart/cart";
 })
 export class MyOrderPage {
   cart_items = [];
+  cart_element: any;
   gggggggggggggg: boolean = false;
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
-    private storage: Storage, 
-    private fire: FirebaseProvider) {
-
-      this.storage.get('cart').then((val1) => 
-    {
-      if(typeof val1 != "object" && val1 != "")
-      {
-        this.gggggggggggggg = true;
-        let new_str = "{"+val1+"}";
-        let cart_items = JSON.parse(new_str);
-        console.log(cart_items);
-        //let fire = this.fbase.getData().child("order");
-        for (let key in cart_items) {
-          let product_obj = cart_items[key];
-          console.log(product_obj);
-        }
-      }
-    })
+    private fire: FirebaseProvider,
+    private methods: MethodsProvider) {
     }
-     /*  ionViewDidLoad() {
+     ionViewDidLoad() {
+      this.methods.get_user().then((user_id)=>
+      {
+        if(typeof user_id != "object" && user_id != "")
+        {
+          let firebase = this.fire.getData().child("order").child(user_id);
+          firebase.on("child_added", (snap)=>
+          {
+            let order_key = snap.key;
+            let order_items = snap.val();
+              let order_date = order_key.split("T");
+              let order_date1 = order_date[0];
+              let oder_dt_part = order_date1.split("-");
+              let full_order_date = oder_dt_part[3]+"-"+oder_dt_part[2]+"-"+oder_dt_part[1];
+              this.gggggggggggggg = true;
+              //this.cart_element.date = full_order_date;
+              //console.log(full_order_date);
+              //order_data.title = order_date[0];
+              for(let product_id in order_items)
+              {
+                let size = order_items[product_id].size;
+                //console.log(product_id); console.log(size);
+                let fireorder = this.fire.getData().child("product");
+                fireorder.on("child_added", (snaporder)=>
+                {
+                  if(snaporder.key == product_id)
+                  {
+                    let product_det = snaporder.val();
+                    let order_obj = {date: full_order_date, img: product_det.size[size].image, title: product_det.title, qty: order_items[product_id].qty, price: order_items[product_id].total_price, size: size};
+                    this.cart_items.push(order_obj);
+                  }
+                });
+              }
+          });
+          console.log(this.cart_items);
+        }
+      });
     console.log('ionViewDidLoad MyOrderPage');
-  } */
+  } 
   }  
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { FirebaseProvider } from "../../providers/firebase/firebase";
-import { Storage } from '@ionic/storage';
+import { MethodsProvider } from "../../providers/methods/methods";
 import { HomePage } from "../../pages/home/home";
 import { MyOrderPage } from "../../pages/my-order/my-order";
 /**
@@ -20,11 +20,10 @@ export class MyAccountPage {
   name: string = "";
   constructor(public navCtrl: NavController,
     private fbase: FirebaseProvider,
-    private storage: Storage) {
+    private methods: MethodsProvider) {
 
-      this.storage.get('uid').then((val) => {
-        let user_id = val;
-        if(user_id != "")
+      this.methods.get_user().then((user_id) => {
+        if(typeof user_id != "object" && user_id != "")
         {
           let userdata = this.fbase.getData().child("users");
           userdata.on("child_added", (snap)=>
@@ -55,7 +54,7 @@ export class MyAccountPage {
   }
   logout()
   {
-    this.storage.set('uid', '');
+    this.methods.clear_storage();
     this.navCtrl.setRoot(HomePage);
   }
   order(){

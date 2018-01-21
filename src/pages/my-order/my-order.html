@@ -20,14 +20,23 @@
         </div>
       </div> 
       <div *ngIf="gggggggggggggg">
-      <ion-card *ngFor="let OrderCart of cart_items; let i = index" >  
-          <ion-card-header>
-            Order Name: {{OrderCart.title}}
-          </ion-card-header>
-          <ion-card-content>
-              
-              Shopping
-            </ion-card-content>
-      </ion-card>
+        <div *ngFor="let single_cart of cart_items; let i = index" class="cart_body mt10">
+
+          <div class="cart_pro">
+              <div class="cart_imgrt">
+                  <p>{{single_cart.date}}</p>
+              </div>
+            <div class="cart-pic">
+              <img class="text-center" src="{{single_cart.img}}" alt="">
+            </div>
+            <div class="cart_imgrt">
+              <p>{{single_cart.title}}</p>
+              <p>Size: {{single_cart.product_size}}</p>
+              <p>Qty: {{single_cart.qty}}</p>
+            </div>
+          </div>
+          <div class="cart_pri mt8per">£{{single_cart.price}}</div>
+          
+        </div>
     </div>
 </ion-content>

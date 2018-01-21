@@ -32,15 +32,12 @@ export class ListingPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListingPage');
     let firebaseData = this.fbase.getData().child("product");
-    let put_data = [];
-    firebaseData.on("child_added", function(snap)
+    firebaseData.on("child_added", (snap)=>
     {
       let snap_val = snap.val();
       snap_val.parent = snap.key;
-      put_data.push(snap_val);
+      this.productList.push(snap_val);
     });
-    this.productList = put_data;
   }
-
 }
       

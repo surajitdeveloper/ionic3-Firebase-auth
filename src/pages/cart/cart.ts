@@ -230,7 +230,9 @@ export class CartPage {
                     {
                       console.log(output_html);
                       console.log(email);
-                      let order_id = (Math.floor(Math.random() * 29) + 895632659)+ "dev";
+                      let current_data = new Date().toISOString();
+                      let set_date = current_data.split(".");
+                      let order_id = (Math.floor(Math.random() * 29) + 895632659)+ "-"+ set_date[0];
                       let order = this.fbase.getData().child("order").child(user_id).child(order_id).set(cart_items);
                       this.http.send_email(email, output_html,'New Order Request Email').subscribe( user => {}, error =>{} );
                       alert("Order Placed Successfully");
