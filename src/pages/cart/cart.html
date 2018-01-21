@@ -12,8 +12,51 @@
 
 
 <ion-content padding>
-  <ion-list>
-    <ion-item>1</ion-item>
-    <ion-item>2</ion-item>
+  <!--ion-list>
+    <ion-item><img height="25" width="25" src="{{single_cart.product_img}}" /> {{single_cart.title}} {{single_cart.qty}} {{single_cart.price}}</ion-item>
   </ion-list>
+<span>Total: {{product_price}}</span>
+  <button (click)="send_order()">Send</button-->
+    <div class="search-box">
+      <div class="search-top-text">
+        <h3>Cart</h3>
+      </div>
+    </div>
+    
+    
+    <div class="cart_main">
+      <div class="cart_head mt20">
+        <div class="cart_pro">Product</div>
+        <div class="cart_pri">Price</div>
+        <div class="cart_pri">Qty</div>
+        <div class="cart_pri">Subtotal</div>
+      </div>
+      <div *ngFor="let single_cart of cart_items; let i = index" class="cart_body mt10">
+        <div class="cart_pro">
+          <div class="cart-pic">
+            <img class="text-center" src="{{single_cart.product_img}}" alt="">
+          </div>
+          <div class="cart_imgrt">
+            <p>{{single_cart.title}}</p>
+            <p>Size: {{single_cart.product_size}}</p>
+          </div>
+        </div>
+        <div class="cart_pri mt8per">£{{single_cart.unit_price}}</div>
+        <div class="cart_pri mt8per"><span (click)="setQtyMinus(single_cart.product_id, i, single_cart.qty)">-</span> {{single_cart.qty}} <span (click)="setQtyPlus(single_cart.product_id, i, single_cart.qty)">+</span></div>
+        <div class="cart_pri mt8per">£{{single_cart.price}}</div>
+        <div (click)="cross(single_cart.product_id, i)" class="cart_cross">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="container">
+        <div class="full_width">
+          <h4 class="cart_price">£{{product_price}}</h4>
+          <p class="cart_pricetx">Shipping not included</p>
+          <p class="mt20">All orders are processed in shop's currency, which is GBP. The content of your cart may be displayed in another currency, at the most current exchange rate.</p>
+          <button (click)="sendOrder()" class="cart_chkout">Checkout</button>
+    
+        </div>
+      </div>
+    
+    </div>
 </ion-content>

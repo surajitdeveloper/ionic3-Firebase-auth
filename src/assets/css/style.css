@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'rajdhaniregular';
+    src: url('../fonts/rajdhani-regular-webfont.woff2') format('woff2'),
+         url('../fonts/rajdhani-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 body{	
 	padding: 0;
@@ -7,7 +15,19 @@ body{
 	color: #222;
 
 }
+.cart_pri ,.cart_pro
+{
+	font-family: 'Rajdhani', sans-serif;
+	font-size: 11px !important;
+	font-weight: bold !important;
+}
 
+.cart_imgrt p 
+{
+font-family: 'Rajdhani', sans-serif;
+	    font-size: 14px !important;
+}
+}
 .body_landing{
 	background-color: #000;
 	background-image: url(../images/land_caroil.png);
@@ -149,16 +169,17 @@ box-sizing: border-box;
 {
 	margin: 5%;
 }
-.search-result
-{
+.search-result{
 	width: 30%;
 	float: left;
+	margin-left: 5%;
+	margin-top: 5%;
 }
 .search-pic
 {
 	background-color: #EEEEEE;
 	float: left;
-	margin: 15%;
+	/*margin: 15%;*/
 	width: 75%;
 }
 .search-pic img
@@ -177,14 +198,15 @@ box-sizing: border-box;
 }
 .search-text
 {
-	width: 70%;
+	width: 64%;
 	float: left;
+	margin-top: 5%;
 }
 .search-text-x p
 {
 	font-weight: 600;
 	font-size: 14px;
-	padding: 5px;
+	/*padding: 5px;*/
 	margin: 0px;
 }
 .search-text-x button
@@ -232,7 +254,6 @@ box-sizing: border-box;
 	padding: 11px;
 	color: #fff;
 	font-size: 16px;
-
 }
 .compare-text
 {
@@ -289,7 +310,6 @@ box-sizing: border-box;
 .product-info
 {
 	margin: 5%;
-
 }
 .text-red
 {
@@ -352,4 +372,196 @@ hr
 }
 .Specification-item p label:nth-child(2) {
 float: right;
+}
+.logbtn
+{
+	margin-top: 20px !important;
+	background-color: #CD1D1D !important;
+	border-radius: 0px !important;
+	display: block !important;
+	text-align: center !important;
+	vertical-align: middle !important;
+	margin: 0 auto !important;
+}
+.red
+{
+	color: #CD1D1D !important;
+}
+.regbtn{
+
+	background-color: #CD1D1D !important;
+	border-radius: 0px !important;
+	display: block !important;
+	text-align: center !important;
+	vertical-align: middle !important;
+	margin: 20px auto !important;
+}
+.scroll-content
+{
+	padding: 0px !important;
+}
+.cart_pri
+{
+	font-family: 'Rajdhani', sans-serif;
+	font-weight: normal !important;
+}
+
+.cart_main{
+	width: 100%;
+	float: left;
+}
+.cart_pro{
+	width: 30%;
+	float: left;
+	margin: 0 5%;
+	box-sizing: border-box;
+	font-weight: normal !important;
+	font-family: 'Rajdhani', sans-serif !important;
+}
+
+.cart_head{
+	float: left;
+	width: 100%;
+	font-weight: 600;
+	font-size: 14px;
+}
+.cart_pri{
+	width: 13%;
+	margin: 0 2%;
+	float: left;
+}
+.cart_body{
+	background-color: #EEEEEE;
+	width: 100%;
+	float: left;
+	padding: 2% 0;
+	font-size: 14px;
+	position: relative;
+}
+
+.cart-pic{
+	width: 30%;
+	float: left;
+	margin-top: 4%;
+}
+.cart-pic img{
+	width: 100%;
+}
+
+.cart_imgrt{
+	width: 65%;
+	float: left;
+	margin-left: 5%;
+}
+
+.cart_imgrt p{
+	font-weight: 600;
+	font-size: 14px;
+	color: #747474;
+	text-transform: uppercase;
+	margin-bottom: 3px;
+}
+.cart_imgrt p+p{
+	font-weight: 600;
+	font-size: 15px;
+	color: #222;
+	text-transform: none;
+}
+.cart_imgrt p+p+p{
+	font-weight: normal;
+	font-size: 13px;
+	color: #222;
+	text-transform: none;
+}
+.cart_cross{
+	position: absolute;
+	top: 40%;
+	right: 5%;
+}
+.mt8per{
+	margin-top: 8%;
+}
+.container{
+	width: 90%;
+	float: left;
+	margin: 0 5%;
+}
+.cart_area{
+	width: 100%;
+	float: left;
+	height: 80px;
+	margin-bottom: 3%;
+	border: 1px solid #ccc;
+	padding: 3%;
+	box-sizing: border-box;
+	margin-top: 2%;
+}
+.cart_price{
+	font-weight: 600;
+	font-size: 30px;
+	color: #222;
+	text-transform: none;
+	margin-top: 10px !important;
+	margin-bottom: 0px !important;
+	padding: 0px;
+	font-family: 'Rajdhani', sans-serif;
+}
+.cart_imgrt p:nth-child(2) {
+    font-weight: normal !important;
+    font-size: 12px !important;
+    width: 100% !important;
+}
+.cart_pricetx{
+	color: #222;
+    font-size: 13px;
+    font-weight: normal;
+    text-transform: none;
+    text-decoration: none;
+    margin-top: 20px;
+    padding: 0px;
+}
+.cart_chkout{
+	background: #cd1d1d;
+	padding: 3% 9%;
+	float: left;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 18px;
+	cursor: pointer;
+	margin-top: 4%;
+	margin-bottom: 4%;
+	border: none;
+}
+
+.cart_input{
+	width: 100%;
+	float: left;
+	/*margin-bottom: 3%;
+	border: 1px solid #ccc;*/
+	/*padding: 3%;*/
+	box-sizing: border-box;
+	margin-top: 2%;
+}
+.loginbtn{
+	margin: 10px auto;
+	float: none;
+	display: table;
+}
+
+.cart_pricetx a{
+	color: #cd1d1d;
+	text-decoration: none;
+}
+.toolbar-md {
+  background-color: #cd1d1d !important;
+  color: #fff !important;
+  min-height: 56px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 4px;
+}
+ion-navbar.toolbar {
+  display: flex;
+  transform: none !important;
 }

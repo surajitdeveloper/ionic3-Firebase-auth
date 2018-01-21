@@ -5,6 +5,11 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { HomePage } from "../../pages/home/home";
 import { MyAccountPage } from "../../pages/my-account/my-account";
 import { Storage } from '@ionic/storage';
+import { RegistrationPage } from "../../pages/registration/registration";
+import { ForgotPasswordPage } from "../../pages/forgot-password/forgot-password";
+//import { MyApp } from "../../app/app.component";
+import { from } from 'rxjs/observable/from';
+import { ListingPage } from "../listing/listing";
 /**
  * Generated class for the LoginPage page.
  *
@@ -17,12 +22,8 @@ import { Storage } from '@ionic/storage';
   selector: 'page-login',
   templateUrl: 'login.html',
 })
-export class LoginPage {
+export class LoginPage { 
   private todo : FormGroup;
- /*  goto(home){
-     this.navCtrl.push(HomePage,{users: home});
-  } */
-
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
     private formBuilder: FormBuilder, 
@@ -32,6 +33,13 @@ export class LoginPage {
         email: ['', Validators.required],
         password: ['', Validators.required],
       });
+  }
+  goto(val)
+  {
+    if(val == "register")
+      this.navCtrl.push(RegistrationPage);
+    if(val == "forgot")
+      this.navCtrl.push(ForgotPasswordPage);
   }
   private_user: boolean = false;
   wholeseller: boolean = false;
@@ -52,6 +60,7 @@ export class LoginPage {
           if(typeof user_data.not_activated == "undefined")
           {
             this.storage.set("uid",user_id);
+            this.storage.set("useremail",this.todo.value.email);
             this.navCtrl.setRoot(MyAccountPage);
           }
           else

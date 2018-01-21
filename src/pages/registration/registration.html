@@ -3,7 +3,14 @@
     <header1></header1>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
+<ion-content padding> 
+    <div>
+        <div class="search-box">
+            <div class="search-top-text">
+              <h3>Registration</h3>
+            </div>
+          </div>
+        </div> 
 <form [formGroup]="todo" (ngSubmit)="logForm()"> 
     <ion-item>
     <ion-label>MemberType</ion-label>
@@ -14,43 +21,34 @@
       </ion-select>
     </ion-item>
     <ion-item *ngIf="private_user">
-      <ion-label>First name</ion-label>
-      <ion-input type="text" formControlName="firstname"></ion-input>
+      <ion-input type="text" placeholder="First name" formControlName="firstname"></ion-input>
     </ion-item>
-    <ion-item *ngIf="private_user">
-      <ion-label>Last name</ion-label>
-      <ion-input type="text" formControlName="lastname"></ion-input>
+    <ion-item *ngIf="private_user">    
+      <ion-input type="text" placeholder="Last name"  formControlName="lastname"></ion-input>
     </ion-item>
     <ion-item *ngIf="wholeseller">
-      <ion-label>Whole Seller Name</ion-label>
-      <ion-input type="text" formControlName="wholesellername"></ion-input>
+      <ion-input type="text" placeholder="Whole Seller Name" formControlName="wholesellername"></ion-input>
     </ion-item>
     <ion-item *ngIf="trader">
-      <ion-label>Trader Name</ion-label>
-      <ion-input type="text" formControlName="tradername"></ion-input>
+      <ion-input type="text" placeholder="Trader Name" formControlName="tradername"></ion-input>
     </ion-item>
     <ion-item *ngIf="wholeseller || trader">
-        <ion-label>Company Name</ion-label>
-        <ion-input type="text" formControlName="companyname"></ion-input>
+        <ion-input type="text" placeholder="Company Name" formControlName="companyname"></ion-input>
     </ion-item>
     <ion-item *ngIf="wholeseller || trader">
-        <ion-label>Company Address</ion-label>
-        <ion-textarea formControlName="companyaddress"></ion-textarea>
+        <ion-textarea placeholder="Company Address" formControlName="companyaddress"></ion-textarea>
     </ion-item>
     <ion-item *ngIf="wholeseller || trader">
-        <ion-label>Company Registration Number</ion-label>
-        <ion-textarea formControlName="companyregisternumber"></ion-textarea>
+        <ion-textarea placeholder="Company Registration Number" formControlName="companyregisternumber"></ion-textarea>
     </ion-item>
     <ion-item>
-      <ion-label>Email</ion-label>
-      <ion-input type="text" formControlName="email"></ion-input>
+      <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label>Passwords</ion-label>
-      <ion-input formControlName="password" [type]="showPassword ? 'text' : 'password'">
+    <ion-item> 
+      <ion-input formControlName="password" placeholder="Passwords" [type]="showPassword ? 'text' : 'password'">
         <ion-icon ios="ios-eye" md="md-eye" #showhideinput></ion-icon>
       </ion-input>
     </ion-item>
-    <button class="mybutton" ion-button type="submit" [disabled]="!todo.valid">Register</button>
+    <button class="mybutton" ion-button type="submit" class="regbtn text-center" [disabled]="!todo.valid">Register</button>
   </form>
 </ion-content>

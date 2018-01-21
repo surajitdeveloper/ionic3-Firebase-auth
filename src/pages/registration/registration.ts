@@ -21,7 +21,7 @@ export class RegistrationPage {
   private todo : FormGroup;
   /* goto(login){
     this.navCtrl.push(LoginPage,{users: login});
- } */
+ } */ 
  // showPassword = "password";
   constructor(
     public navCtrl: NavController, 
@@ -55,17 +55,40 @@ export class RegistrationPage {
       let user_email = user.email;
       let user_id = user.uid;
       let user_data = {};
+      let userName = "";
       let user_type = this.todo.value.regtype;
       if(user_type == "private_user")
-        user_data = {type: user_type, firstname: this.todo.value.firstname, lastname: this.todo.value.lastname, email: user_email, not_activated: true};
+      {
+        user_data = {type: user_type, firstname: this.todo.value.firstname, lastname: this.todo.value.lastname, 
+          email: user_email, not_activated: true};
+        userName = this.todo.value.firstname +" "+this.todo.value.lastname;
+      }
       if(user_type == "wholeseller")
-        user_data = {type: user_type, wholesellername: this.todo.value.wholesellername, companyname: this.todo.value.companyname, companyaddress: this.todo.value.companyaddress, companyregisternumber: this.todo.value.companyregisternumber, email: user_email,  not_activated: true};
+        {
+          user_data = {type: user_type, wholesellername: this.todo.value.wholesellername, companyname: this.todo.value.companyname, 
+            companyaddress: this.todo.value.companyaddress, companyregisternumber: this.todo.value.companyregisternumber, 
+            email: user_email,  not_activated: true};
+          userName =  this.todo.value.wholesellername; 
+        }
       if(user_type == "trader")
-        user_data = {type: user_type, tradername: this.todo.value.tradername, companyname: this.todo.value.companyname, companyaddress: this.todo.value.companyaddress, companyregisternumber: this.todo.value.companyregisternumber, email: user_email,  notactivated: true};
-      let userinput = this.firebase.getData().child("users").child(user_id).set(user_data);
-      let user_link = "https://ottolube-893d9.firebaseio.com/users/"+ user_id;
+        {
+          user_data = {type: user_type, tradername: this.todo.value.tradername, companyname: this.todo.value.companyname, 
+            companyaddress: this.todo.value.companyaddress, companyregisternumber: this.todo.value.companyregisternumber, 
+            email: user_email,  notactivated: true};
+          userName  = this.todo.value.tradername;
+        }
+      let userinput = this.firebase.getData().child("users").child(user_id).set(user_data); 
+      let user_link = "http://surajitdeveloper.in/projects/mail/firebase.php?uid="+ user_id;
+      let register ="<html>";
+      register += "<p>Hi Admin,</p>";
+      register += "<p>A New user is requested for a registration. Below is the details for user</p>";
+      register += "<p>User Role: "+user_type+"</p>";
+      register += "<p>Name: "+userName+"</p>";  
+      register += "<p>Email: "+user_email+"</p>";
+      register += "<p>Please click Below 'Activate' button to Active the user.</p>";
+      register += "<a style='color:white; text-decoration: none; font-size: 14px; ' href='"+user_link+"'><div style='width: 50px; height: 18px; border-radius: 6px; padding: 12px; background-color: #3366ff'; text-align: center;>Activate</div></a>";
       //alert (user_link);
-      this.http.send_email(user_email, user_link).subscribe( user => {}, error =>{} );
+      this.http.send_email(user_email, register, ' New User Registration Request Email').subscribe( user => {}, error =>{} );
       this.todo.reset();
       alert("your account is under review, Please wait");
      this.navCtrl.push(LoginPage);

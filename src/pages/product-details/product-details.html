@@ -38,42 +38,20 @@
       <p><a (click)="set_liter('size1')" class="litrec" [class.litrec-clr]="size == 'size1'">1 Litre</a>
          <a (click)="set_liter('size2')" class="litrec" [class.litrec-clr]="size == 'size2'">5Litre</a>
          <a (click)="set_liter('size3')" class="litrec" [class.litrec-clr]="size == 'size3'">200Litre</a></p>
-      <p>Quentity</p>
+      <p>Quantity</p>
       <p><label class="plusmi"><a (click)="set_qty('minus')"><i class="fa fa-minus" aria-hidden="true"></i></a><a>{{total_qty}}</a><a (click)="set_qty('plus')"><i class="fa fa-plus" aria-hidden="true"></i></a></label></p>
-      <button (click)="add_cart()" type="button" class="mybutton">Add to Cart</button>
+      <button [attr.disabled]="button_disable ? '' : null" (click)="add_cart()" type="button" class="mybutton">Add to Cart</button>
+      <button (click)="gotoCart()" type="button" class="mybutton">Go to cart</button>
     </div>
   </div>
   <div class="product-info" >
     <p>{{product.description}}</p>
   </div>
   <div class="display-tab">
-    <p><a class="active">Reviews</a><a>Specification</a><a>Technical details</a></p>
-    <hr>
-    <div class="review-write">
-      <button type="button" class="mybutton">Write a Review</button>
-    </div>
-    <div class="clearfix"></div>
-    <div class="djhwd">
-       <ion-input placeholder=" Name"></ion-input>
-    </div>
-    <div class="djhwd">
-      Email
-    </div>
-    <div class="inut-rat">
-      Rating
-      <div class="star-img">
-        <img src="assets/images/star.png">
-      </div>
-    </div>
-    <div class="djhwd">
-      Review-Title
-    </div>
-    <div class="djhwd">
-      Body of Review (1500)
-    </div>
-    <div class="review-write">
-      <button type="button" class="mybutton">Submit Review</button>
-    </div>
+    <p><a [class.active]="reviews" (click)="changeSpec('reviews')">Reviews</a><a [class.active]="specification" (click)="changeSpec('specification')">Specification</a><a [class.active]="technicaldetails" (click)="changeSpec('technicaldetails')">Technical details</a></p>
+    <reviews *ngIf="reviews"></reviews>
+    <technical-details *ngIf="technicaldetails"></technical-details>
+    <specification *ngIf="specification"></specification>
   </div>
   </div>
 </ion-content>

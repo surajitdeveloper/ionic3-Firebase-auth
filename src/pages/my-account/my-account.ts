@@ -3,6 +3,7 @@ import { IonicPage, NavController } from 'ionic-angular';
 import { FirebaseProvider } from "../../providers/firebase/firebase";
 import { Storage } from '@ionic/storage';
 import { HomePage } from "../../pages/home/home";
+import { MyOrderPage } from "../../pages/my-order/my-order";
 /**
  * Generated class for the MyAccountPage page.
  *
@@ -14,7 +15,7 @@ import { HomePage } from "../../pages/home/home";
 @Component({
   selector: 'page-my-account',
   templateUrl: 'my-account.html',
-})
+}) 
 export class MyAccountPage {
   name: string = "";
   constructor(public navCtrl: NavController,
@@ -56,5 +57,8 @@ export class MyAccountPage {
   {
     this.storage.set('uid', '');
     this.navCtrl.setRoot(HomePage);
+  }
+  order(){
+    this.navCtrl.setRoot(MyOrderPage);
   }
 }

@@ -13,10 +13,37 @@
 
 <ion-content padding>
 <div class="search-box">
-  <div class="search-top-text">
-    <h3>My Account</h3>
+  <div class="search-top-text"> 
+    <h1>My Account</h1>
   </div>
 </div>
-Welcome: {{name}}
-<button (click)="logout()">Logout</button>
+
+<ion-card>
+  <ion-card-header>
+    Welcome: {{name}}
+  </ion-card-header>
+
+  <ion-list>
+    <button ion-item (click)="order()">
+      <ion-icon ios="ios-person" md="md-person" item-start></ion-icon>
+      My Orders
+    </button>
+
+    <button ion-item>
+      <ion-icon ios="ios-color-wand" md="md-color-wand" item-start></ion-icon>
+      Get Points
+    </button>
+
+    <button ion-item>
+      <ion-icon ios="ios-settings" md="md-settings" item-start></ion-icon>
+      Account Settings
+    </button>
+
+    <button ion-item (click)="logout()">
+      <ion-icon ios="ios-exit" md="md-exit" item-start></ion-icon>
+      Logout 
+    </button>
+</ion-list>
+</ion-card>
+<!-- <button (click)="logout()">Logout</button> -->
 </ion-content>

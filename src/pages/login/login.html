@@ -12,14 +12,16 @@
 
 
 <ion-content padding>
+  <div>
     <div class="search-box">
         <div class="search-top-text">
           <h3>Login</h3>
         </div>
       </div>
+    </div>
       <div class="cart_main">
           
-            <div class="container">
+            <div class="container"> 
           
           <form [formGroup]="todo" (ngSubmit)="logedin()">
              
@@ -28,16 +30,16 @@
               </ion-item>
               <ion-item>
                 <ion-input type="password" formControlName="password" class="cart_input" placeholder="Password"></ion-input>
-              </ion-item>
-              <button ion-button type="submit" [disabled]="!todo.valid" class="cart_chkout loginbtn">Submit</button>
+              </ion-item><br><br>
+                <div class="full_width"></div>
+              <button ion-button type="submit" [disabled]="!todo.valid" class="logbtn text-center cart_chkout loginbtn">Submit</button>
             </form>
             <div class="full_width">
-                <p class="cart_pricetx text-center"><a href="#">Forgot your password?</a></p>
-              </div>
-          
+              <p class="cart_pricetx text-center"><a (click)="goto('forgot')" class="red">Forgot your password?</a></p>
+            </div>
               <div class="full_width">
               <!--   <button class="cart_chkout loginbtn" (click)="open($event)" >View Account</button> -->
-                <p class="cart_pricetx text-center">Don't have an account? <a href="#">Register</a></p>
+                <p class="cart_pricetx text-center">Don't have an account? <a (click)="goto('register')" class="red">Register</a></p>
           
               </div>
             </div>

@@ -22,7 +22,7 @@ export class Header1Component {
     switch(val)
     {
       case 'profile':
-        this.callNumber.callNumber("+44 (0) 203 8855 123", true)
+        this.callNumber.callNumber("+44 (0) 02034090835", true)
         .then(() => console.log('Launched dialer!'))
         .catch(() => console.log('Error launching dialer'));
         break;
