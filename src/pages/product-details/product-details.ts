@@ -57,7 +57,9 @@ export class ProductDetailsPage {
   set_liter(val) //this method is used for change liter tab in product details page
   {
     this.size = val;
-    switch(val)
+    this.product_price = this.product.size[val].price;
+    this.image = this.product.size[val].image;
+    /*switch(val)
     {
       case "size1":
         this.product_price = this.product.size.size1.price;
@@ -71,7 +73,7 @@ export class ProductDetailsPage {
         this.product_price = this.product.size.size3.price;
         this.image = this.product.size.size3.image;
         break;
-    }
+    }*/
   }
   productAddtoCart(product_id, size, qty, item_price) // this method used for add product to cart and parameter used for product id, product size, product quantity and product item price
   {

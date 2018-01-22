@@ -20,14 +20,12 @@ export class HomePage {
     private firebase: FirebaseProvider) {
 
     let catagoty_child = this.firebase.getData().child("product");
-    let put_data = [];
-    catagoty_child.on("child_added", function(snap)
+    catagoty_child.on("child_added", (snap)=>
       {
         let snap_val = snap.val();
         snap_val.parent = snap.key;
-        put_data.push(snap_val);
+        this.ext_put_data.push(snap_val);
       });
-      this.ext_put_data = put_data;
   }
 
 }

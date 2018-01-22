@@ -23,6 +23,11 @@ export class RegistrationPage {
     this.navCtrl.push(LoginPage,{users: login});
  } */ 
  // showPassword = "password";
+ private getUserTypeText(userType: string): string
+ {
+    let user_data =  userType.charAt(0).toUpperCase() + userType.slice(1);
+    return user_data.replace("_"," ");
+ }
   constructor(
     public navCtrl: NavController, 
     private formBuilder: FormBuilder,
@@ -57,6 +62,7 @@ export class RegistrationPage {
       let user_data = {};
       let userName = "";
       let user_type = this.todo.value.regtype;
+      let userTypeText = "";
       if(user_type == "private_user")
       {
         user_data = {type: user_type, firstname: this.todo.value.firstname, lastname: this.todo.value.lastname, 
@@ -82,7 +88,7 @@ export class RegistrationPage {
       let register ="<html>";
       register += "<p>Hi Admin,</p>";
       register += "<p>A New user is requested for a registration. Below is the details for user</p>";
-      register += "<p>User Role: "+user_type+"</p>";
+      register += "<p>User Role: "+this.getUserTypeText(user_type)+"</p>";
       register += "<p>Name: "+userName+"</p>";  
       register += "<p>Email: "+user_email+"</p>";
       register += "<p>Please click Below 'Activate' button to Active the user.</p>";
