@@ -47,21 +47,6 @@ export class CartPage {
       let cart_items = this.methods.cart_json(val);
       cart_items[product_id].qty = curr_qty;
       cart_items[product_id].total_price = (qty * unit_price);
-      /*if(product_id == "product1")
-      {
-        cart_items.product1.qty = curr_qty;
-        cart_items.product1.total_price = (qty * unit_price);
-      }
-      if(product_id == "product2")
-      {
-        cart_items.product2.qty = curr_qty;
-        cart_items.product2.total_price = (qty * unit_price);
-      }
-      if(product_id == "product3")
-      {
-        cart_items.product3.qty = curr_qty;
-        cart_items.product3.total_price = (qty * unit_price);
-      }*/
       let new_cart_item = JSON.stringify(cart_items);
       this.methods.set_storage('cart',"");
       new_cart_item = new_cart_item.substr(1);
