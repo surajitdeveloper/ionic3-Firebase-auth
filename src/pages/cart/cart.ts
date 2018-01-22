@@ -45,7 +45,9 @@ export class CartPage {
     this.methods.get_cart().then((val) => 
     {
       let cart_items = this.methods.cart_json(val);
-      if(product_id == "product1")
+      cart_items[product_id].qty = curr_qty;
+      cart_items[product_id].total_price = (qty * unit_price);
+      /*if(product_id == "product1")
       {
         cart_items.product1.qty = curr_qty;
         cart_items.product1.total_price = (qty * unit_price);
@@ -59,7 +61,7 @@ export class CartPage {
       {
         cart_items.product3.qty = curr_qty;
         cart_items.product3.total_price = (qty * unit_price);
-      }
+      }*/
       let new_cart_item = JSON.stringify(cart_items);
       this.methods.set_storage('cart',"");
       new_cart_item = new_cart_item.substr(1);
@@ -225,10 +227,10 @@ export class CartPage {
                       });
                     }
                     output_html += "<br />Total Amount - £"+this.product_price+"</table></body></html>";
-                    console.log(output_html);
+                    //console.log(output_html);
                     this.methods.get_usermail().then((email) =>
                     {
-                      console.log(output_html);
+                      //console.log(output_html);
                       console.log(email);
                       let current_data = new Date().toISOString();
                       let set_date = current_data.split(".");
