@@ -80,7 +80,7 @@ export class RegistrationPage {
         {
           user_data = {type: user_type, tradername: this.todo.value.tradername, companyname: this.todo.value.companyname, 
             companyaddress: this.todo.value.companyaddress, companyregisternumber: this.todo.value.companyregisternumber, 
-            email: user_email,  notactivated: true};
+            email: user_email,  not_activated: true};
           userName  = this.todo.value.tradername;
         }
       let userinput = this.firebase.getData().child("users").child(user_id).set(user_data); 
