@@ -68,46 +68,16 @@ export class ProductDetailsPage {
         console.log(val);
         let cart_item = "";
         let old_data_new = this.methods.cart_json(val);
-        //if(product_id == "product1")
-        //{
-          if(typeof old_data_new[product_id] != "object")
-          {
-            let json_cart_data = {size: size, qty: qty, item_price: item_price, total_price: (qty * item_price)};
-            cart_item = '"'+product_id+'":'+JSON.stringify(json_cart_data);
-            this.methods.set_storage("cart",val+","+cart_item);
-          }
-          else
-          {
-            alert("This Product already added in cart");
-          }
-        //}
-        /*if(product_id == "product2")
+        if(typeof old_data_new[product_id] != "object")
         {
-          if(typeof old_data_new.product2 != "object")
-          {
-            let json_cart_data = {size: size, qty: qty, item_price: item_price, total_price: (qty * item_price)};
-            cart_item = '"'+product_id+'":'+JSON.stringify(json_cart_data);
-            this.methods.set_storage("cart",val+","+cart_item);
-          }
-          else
-          {
-            alert("This Product already added in cart");
-          }
+          let json_cart_data = {size: size, qty: qty, item_price: item_price, total_price: (qty * item_price)};
+          cart_item = '"'+product_id+'":'+JSON.stringify(json_cart_data);
+          this.methods.set_storage("cart",val+","+cart_item);
         }
-        if(product_id == "product3")
+        else
         {
-          if(typeof old_data_new.product3 != "object")
-          {
-            let json_cart_data = {size: size, qty: qty, item_price: item_price, total_price: (qty * item_price)};
-            cart_item = '"'+product_id+'":'+JSON.stringify(json_cart_data);
-            this.methods.set_storage("cart",val+","+cart_item);
-          }
-          else
-          {
-            alert("This Product already added in cart");
-          }
-        }*/
-        //let new_data = {size: size, qty: qty, item_price: item_price, total_price: (qty * item_price), product_id: product_id};
+          alert("This Product already added in cart");
+        }
       }
       else
       {
@@ -120,10 +90,6 @@ export class ProductDetailsPage {
   }
   add_cart() // this method is used for add cart button click function for product details page
   {
-    //alert("Work on process");
-    //alert(this.total_qty);
-    //alert(this.product_price);
-    //alert(this.size);
     console.log(this.product_id);
     console.log(this.size);
      this.productAddtoCart(this.product_id, this.size, this.total_qty, this.product_price);
