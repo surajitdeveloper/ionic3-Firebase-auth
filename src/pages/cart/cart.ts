@@ -70,19 +70,7 @@ export class CartPage {
     {
       let cart_items_json = this.methods.cart_json(val);
       console.log(cart_items_json);
-      cart_items_json[product_id] = undefined;
-      /*if(product_id =="product1")
-      {
-        cart_items_json.product1 = undefined;
-      }
-      if(product_id == "product2")
-      {
-        cart_items_json.product2 = undefined;
-      }
-      if(product_id == "product3")
-      {
-        cart_items_json.product3 = undefined;
-      }*/
+      cart_items_json[product_id] = undefined
       cart_items_json = JSON.parse(JSON.stringify(cart_items_json));
       let new_cart_item = JSON.stringify(cart_items_json);
       this.methods.set_storage('cart',"");
@@ -103,7 +91,7 @@ export class CartPage {
         console.log(cart_items);
         let firebaseData = this.fbase.getData().child("product");
         for (var key in cart_items) {
-          console.log(key + " -> "); console.log(cart_items[key]);
+          //console.log(key + " -> "); console.log(cart_items[key]);
             let product_obj = cart_items[key];
             this.product_price = this.product_price + product_obj.total_price;
             firebaseData.on("child_added",(add)=>{
