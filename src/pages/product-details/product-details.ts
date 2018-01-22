@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from "../../pages/home/home";
 import { FirebaseProvider } from "../../providers/firebase/firebase";
 import { MyAccountPage } from "../../pages/my-account/my-account";
-import { Storage } from '@ionic/storage';
 import { CartPage } from "../../pages/cart/cart";
 import { MethodsProvider } from "../../providers/methods/methods";
 //import { from } from 'rxjs/observable/from';
@@ -59,52 +58,36 @@ export class ProductDetailsPage {
     this.size = val;
     this.product_price = this.product.size[val].price;
     this.image = this.product.size[val].image;
-    /*switch(val)
-    {
-      case "size1":
-        this.product_price = this.product.size.size1.price;
-        this.image = this.product.size.size1.image;
-        break;
-      case "size2":
-        this.product_price = this.product.size.size2.price;
-        this.image = this.product.size.size2.image;
-        break;
-      case "size3":
-        this.product_price = this.product.size.size3.price;
-        this.image = this.product.size.size3.image;
-        break;
-    }*/
   }
   productAddtoCart(product_id, size, qty, item_price) // this method used for add product to cart and parameter used for product id, product size, product quantity and product item price
   {
-    this.storage.get('cart').then((val) => 
+    this.methods.get_cart().then((val) => 
     {
       if(typeof val != "object" && val != "")
       {
         console.log(val);
         let cart_item = "";
-        let old_data = "{"+val+"}";
-        let old_data_new = JSON.parse(old_data);
-        if(product_id == "product1")
-        {
-          if(typeof old_data_new.product1 != "object")
+        let old_data_new = this.methods.cart_json(val);
+        //if(product_id == "product1")
+        //{
+          if(typeof old_data_new[product_id] != "object")
           {
             let json_cart_data = {size: size, qty: qty, item_price: item_price, total_price: (qty * item_price)};
             cart_item = '"'+product_id+'":'+JSON.stringify(json_cart_data);
-            this.storage.set("cart",val+","+cart_item);
+            this.methods.set_storage("cart",val+","+cart_item);
           }
           else
           {
             alert("This Product already added in cart");
           }
-        }
-        if(product_id == "product2")
+        //}
+        /*if(product_id == "product2")
         {
           if(typeof old_data_new.product2 != "object")
           {
             let json_cart_data = {size: size, qty: qty, item_price: item_price, total_price: (qty * item_price)};
             cart_item = '"'+product_id+'":'+JSON.stringify(json_cart_data);
-            this.storage.set("cart",val+","+cart_item);
+            this.methods.set_storage("cart",val+","+cart_item);
           }
           else
           {
@@ -117,20 +100,20 @@ export class ProductDetailsPage {
           {
             let json_cart_data = {size: size, qty: qty, item_price: item_price, total_price: (qty * item_price)};
             cart_item = '"'+product_id+'":'+JSON.stringify(json_cart_data);
-            this.storage.set("cart",val+","+cart_item);
+            this.methods.set_storage("cart",val+","+cart_item);
           }
           else
           {
             alert("This Product already added in cart");
           }
-        }
+        }*/
         //let new_data = {size: size, qty: qty, item_price: item_price, total_price: (qty * item_price), product_id: product_id};
       }
       else
       {
         let json_cart_data = {size: size, qty: qty, item_price: item_price, total_price: (qty * item_price)};
         let cart_item = '"'+product_id+'":'+JSON.stringify(json_cart_data);
-        this.storage.set("cart",cart_item);
+        this.methods.set_storage("cart",cart_item);
         //console.log(cart_item);
       }
     });
@@ -160,7 +143,6 @@ export class ProductDetailsPage {
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
     private fbase: FirebaseProvider,
-    private storage: Storage,
     private methods: MethodsProvider) {
     let product = navParams.data.product;
     let firebaseData = this.fbase.getData().child("product");
